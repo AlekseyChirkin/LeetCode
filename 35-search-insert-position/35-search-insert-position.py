@@ -5,13 +5,18 @@ class Solution:
         #     if nums[i] < target:
         #         res = i + 1
         # return res
-        l , r = 0, len(nums)-1
-        while l <= r:
-            mid=(l+r)//2
+        
+        high = len(nums) - 1
+        low = 0
+        
+        while low <= high:
+            mid = (high + low) // 2
+            
             if nums[mid] == target:
                 return mid
             if nums[mid] < target:
-                l = mid+1
+                low = mid + 1
             else:
-                r = mid-1
-        return l
+                high = mid - 1
+        
+        return low
